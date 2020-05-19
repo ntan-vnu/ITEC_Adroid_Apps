@@ -46,7 +46,7 @@ public class MyArrayAdapter extends ArrayAdapter<Hero> {
         txtName.setText(hero.get_name());
         txtDesc.setText(hero.get_description());
 
-        return super.getView(position, convertView, parent);
+        return convertView;
     }
 
     @Override

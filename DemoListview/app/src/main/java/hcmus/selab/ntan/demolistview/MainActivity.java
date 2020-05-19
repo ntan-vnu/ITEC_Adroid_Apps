@@ -3,12 +3,15 @@ package hcmus.selab.ntan.demolistview;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Hero> _listHeroes;
+    ListView _listview;
+    MyArrayAdapter _myArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +19,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         generateData();
+        initListView();
+    }
+
+    private void initListView() {
+        _myArrayAdapter = new MyArrayAdapter(getBaseContext(), R.layout.item_listview, _listHeroes);
+        _listview = findViewById(R.id.lst_heroes);
+        _listview.setAdapter(_myArrayAdapter);
     }
 
     private void generateData() {
