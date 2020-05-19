@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <item android:id="@+id/action_call" android:title="Call"
+        android:icon="@android:drawable/ic_menu_call"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_edit" android:title="Edit"
+        android:icon="@android:drawable/ic_menu_edit"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_camera" android:title="Camera"
+        android:icon="@android:drawable/ic_menu_camera"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_camera2" android:title="Camera"
+        android:icon="@android:drawable/ic_menu_camera"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_camera3" android:title="Camera"
+        android:icon="@android:drawable/ic_menu_camera"
+        app:showAsAction="ifRoom"/>
+</menu>
