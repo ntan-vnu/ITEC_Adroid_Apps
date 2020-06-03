@@ -33,4 +33,25 @@
         android:layout_gravity="center_horizontal"
         android:onClick="btn_add_onclick"
         />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_phoneNo"
+        android:hint="0xxxxxxxx"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call"
+        android:onClick="btn_call_onclick"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maps: HCMUS"
+        android:onClick="btn_geo_onclick"
+        />
+
 </LinearLayout>
