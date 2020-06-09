@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <fragment
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        tools:layout="@layout/fragment_blank01"
+        android:id="@+id/frag01"
+        android:name="hcmus.selab.ntan.demofragment.BlankFragment01"
+        />
+    <fragment
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        tools:layout="@layout/fragment_blank01"
+        android:id="@+id/frag02"
+        android:name="hcmus.selab.ntan.demofragment.BlankFragment01"
+        />
+</LinearLayout>
