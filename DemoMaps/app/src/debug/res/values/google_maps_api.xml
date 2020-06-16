@@ -1,0 +1,27 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=0C:8E:52:08:F0:AB:AC:C2:A3:61:A0:4C:4E:75:E3:50:5E:71:29:05%3Bhcmus.selab.ntan.demomaps
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    hcmus.selab.ntan.demomaps
+
+    SHA-1 certificate fingerprint:
+    0C:8E:52:08:F0:AB:AC:C2:A3:61:A0:4C:4E:75:E3:50:5E:71:29:05
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key"
+        templateMergeStrategy="preserve"
+        translatable="false">AIzaSyCuiHl0tLrlw2tLQ7-2_51UWqZaqy42mSo
+    </string>
+</resources>
