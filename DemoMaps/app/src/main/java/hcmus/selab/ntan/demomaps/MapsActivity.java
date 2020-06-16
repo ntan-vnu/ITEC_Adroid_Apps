@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -129,4 +130,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(hcmus, 15));
     }
 
+    public void btn_clear_onclick(View view) {
+        mMap.clear();
+    }
 }
