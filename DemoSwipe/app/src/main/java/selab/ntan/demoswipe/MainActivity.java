@@ -8,13 +8,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView textView = (TextView) findViewById(R.id.textview1);
+        textView = (TextView) findViewById(R.id.textview1);
         textView.setOnTouchListener(
                 new OnSwipeListener(this) {
                     {
@@ -25,18 +25,20 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onSwipeLeft(float distance) {
-                        Toast.makeText(MainActivity.this, "swiped left!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this,
+                                "swiped left!", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onSwipeRight(float distance) {
-                        Toast.makeText(MainActivity.this, "swiped right!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this,
+                                "swiped right!", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
     }
 
     public void onClickButton1(View view) {
-        Toast.makeText(this, "button 1 clicked", Toast.LENGTH_SHORT).show();
+        textView.setX(0);
     }
 }

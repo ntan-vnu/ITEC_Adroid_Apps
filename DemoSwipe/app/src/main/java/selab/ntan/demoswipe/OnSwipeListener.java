@@ -118,7 +118,8 @@ public class OnSwipeListener implements View.OnTouchListener {
 
         int action = event.getAction();
         if (dragHorizontal || dragVertical) {
-            if (action == MotionEvent.ACTION_DOWN || action == MotionEvent.ACTION_POINTER_DOWN) {
+            if (action == MotionEvent.ACTION_DOWN ||
+                    action == MotionEvent.ACTION_POINTER_DOWN) {
                 // initialViewX = view.getX();
                 // initialViewY = view.getY();
             } else if (action == MotionEvent.ACTION_MOVE) {
