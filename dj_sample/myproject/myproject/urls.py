@@ -20,6 +20,9 @@ from django.conf.urls import url
 from myapp import views
 
 urlpatterns = [
+    url(r'^$', views.home, name='home'),
+    url(r'^new_student', views.new_std, name='new_std'),    
     url(r'^add', views.add, name='add'),
+    url(r'^up_image', views.upload_image, name='up_image'),
 ]
 
