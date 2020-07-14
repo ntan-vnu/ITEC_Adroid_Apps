@@ -34,7 +34,7 @@ def upload_image(request):
     if request.method == 'POST':
         print(len(request.POST['image']))
         filename = handle_base64_str(request.POST['image'])
-        res = detect_face(filename)
+        res = detect_face('images/'+filename)
         if res is None:
             return HttpResponse('-1 -1 -1 -1')
         return HttpResponse('%d %d %d %d'%(res[0], res[1], res[2], res[3]))
