@@ -63,4 +63,11 @@
         android:layout_height="wrap_content"
         android:text="Up"
         android:onClick="btn_ok_onclick2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cap"
+        android:onClick="btn_cap_onclick"
+        />
 </LinearLayout>

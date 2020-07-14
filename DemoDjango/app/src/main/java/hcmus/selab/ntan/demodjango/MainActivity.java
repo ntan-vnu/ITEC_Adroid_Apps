@@ -1,9 +1,12 @@
 package hcmus.selab.ntan.demodjango;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.View;
 import android.widget.EditText;
@@ -24,10 +27,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+    final int REQ_CAM = 123;
+
     EditText edt_a, edt_b, edt_c;
 
     TextView txtRes;
     ImageView imageView;
+    Bitmap bmp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +71,14 @@ public class MainActivity extends AppCompatActivity {
         imageView.buildDrawingCache();
         Bitmap bmp = imageView.getDrawingCache();
         final String str_bmp = getStringImage(bmp);
-        Toast.makeText(this, String.valueOf(str_bmp.length()), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, String.valueOf(str_bmp.length()),
+                Toast.LENGTH_SHORT).show();
 
         RequestQueue queue = Volley.newRequestQueue(this);
         String url ="http://172.17.216.81:8000/up_image";
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -84,15 +92,14 @@ public class MainActivity extends AppCompatActivity {
 
         }) {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams()
+                    throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("image", str_bmp);
                 return params;
             }
         };
         queue.add(stringRequest);
-
-
     }
 
     public String getStringImage(Bitmap bmp) {
@@ -127,5 +134,20 @@ public class MainActivity extends AppCompatActivity {
                     }
         });
         queue.add(stringRequest);
+    }
+
+    public void btn_cap_onclick(View view) {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, REQ_CAM);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    @Nullable Intent data) {
+        if (requestCode==REQ_CAM && resultCode == RESULT_OK) {
+            bmp = (Bitmap) data.getExtras().get("data");
+            imageView.setImageBitmap(bmp);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

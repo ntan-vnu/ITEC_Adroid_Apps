@@ -34,9 +34,32 @@ def upload_image(request):
     if request.method == 'POST':
         print(len(request.POST['image']))
         filename = handle_base64_str(request.POST['image'])
-        return HttpResponse(filename)
+        res = detect_face(filename)
+        if res is None:
+            return HttpResponse('-1 -1 -1 -1')
+        return HttpResponse('%d %d %d %d'%(res[0], res[1], res[2], res[3]))
     else:
         return HttpResponse('not supported')
+
+def detect_face(filename):
+    img = cv2.imread(filename)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+    faces = face_cascade.detectMultiScale(
+			gray,
+			scaleFactor=1.1,
+			minNeighbors=5,
+			minSize=(30, 30),
+			flags=cv2.CASCADE_SCALE_IMAGE
+		)
+
+    if len(faces) < 1:
+        return None
+    x, y, w, h = faces[0]
+    img = cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 1)
+    cv2.imwrite(filename, img)
+    return faces[0]
+    pass
 
 def handle_base64_str(imgstring):
     filename = ''.join(random.choice(string.ascii_lowercase) for i in range(64)) + '.jpg'
